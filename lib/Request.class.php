@@ -12,7 +12,6 @@ class Request {
     public $resourceId = null;
     public $dataParams;
     public $method;
-    
 
     public function __construct($serverRequest) {
         $this->method = $serverRequest['REQUEST_METHOD'];
@@ -20,23 +19,23 @@ class Request {
         $this->parseRoute($serverRequest['REQUEST_URI']);
     }
 
-    public function parseRoute($requestUri){
+    public function parseRoute($requestUri) {
         $uriParts = explode("?", $requestUri);
         $pathVars = explode("/", $uriParts[0]);
-        if(strlen($pathVars[1]) == 0){
+        if (strlen($pathVars[1]) == 0) {
             throw new InvalidPathException("Empty path");
-        }else{
+        } else {
             $this->resourceType = $pathVars[1];
         }
-        if(isset($pathVars[2]) && strlen($pathVars[2]) > 0){
-            if(is_numeric($pathVars[2])){
+        if (isset($pathVars[2]) && strlen($pathVars[2]) > 0) {
+            if (is_numeric($pathVars[2])) {
                 $this->resourceId = $pathVars[2];
-            }else{
+            } else {
                 throw new InvalidDataException("Resource identifier must be numeric");
             }
         }
     }
-    
+
     public function extractDataParams() {
         switch ($this->method) {
             case "GET":

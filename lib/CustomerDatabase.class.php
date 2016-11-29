@@ -148,20 +148,20 @@ class CustomerDatabase {
         $createNewCust = 'INSERT INTO customer (email) VALUES (:email)';
         $statement = $this->pdo->prepare($createNewCust);
         $statement->execute(array(":email" => $postData['email']));
-        
+
         if ($statement->errorCode() != "00000") {
             $errifo = $statement->errorInfo();
             throw new Exception($errifo[2], 400);
         }
         $customer = new Customer($this->pdo->lastInsertId(), $postData['email']);
         unset($postData['email']);
-        
+
         $password = substr(md5($customer->getId()), 0, 10) . substr(sha1($customer->getId()), 0, 10) . StaticConf::$ENCRYPTION_KEY;
         $phone = $customer->encrypt($password, $postData['phone']);
         $customer->setHashedNumber($phone);
         $this->insertPhoneNumber($customer->getId(), $phone);
         unset($postData['phone']);
-   
+
         foreach ($postData as $k => $v) {
             if (ctype_alnum($k)) {
                 $this->insertDataAttribute($customer->getId(), $k, $v);
