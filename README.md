@@ -54,6 +54,7 @@ myjartest
         {fieldname} - filters based on a specific field value, use *val* to get partial values
 
  6) Database structure:
+ 
       customer:
          -id [PK][AI]
          -email [UNIQUE] VARCHAR
