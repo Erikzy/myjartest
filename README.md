@@ -14,7 +14,7 @@ myjartest
     a) Pull the repository
     
     b) Set up Apache to serve the directory you pulled the repository into.
-  
+  <pre>
   <VirtualHost *:80>
     DocumentRoot "/var/www/myjar2/"
     DirectoryIndex index.php
@@ -25,7 +25,7 @@ myjartest
       Allow from All
     </Directory>
    </VirtualHost>
-
+  </pre>
   
    c) edit StaticConf.class.php for environment-specific values such as DB-configuration and site URL.
    
