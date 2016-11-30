@@ -33,6 +33,19 @@ myjartest
    
    e) import the example database dump "myjar_2016-11-30.sql"
    
+   f) setup .htaccess to rewrite all requests to index.php
+   <pre>
+     Options +FollowSymLinks +ExecCGI
+
+      <IfModule mod_rewrite.c>
+         RewriteEngine On
+         RewriteRule ^$ index.html [QSA]
+         RewriteRule ^([^.]+)$ $1.html [QSA]
+         RewriteCond %{REQUEST_FILENAME} !-f
+         RewriteRule ^(.*)$ index.php [QSA,L]
+      </IfModule>
+   </pre>
+   
 3) Usage:
 
 
