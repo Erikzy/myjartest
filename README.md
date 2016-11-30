@@ -48,11 +48,11 @@ myjartest
   }
   
  5) available filters:
-        sort      - field on which to sort (requires valid field name in the parent entity)
-        direction - direction on which to sort. default is ASC accepted (ASC and DESC)
-        limit     - limit the size of the result, requires positive integer
-        offset    - offset of the result (requires a valid limit and a positive integer)
-        {fieldname} - filters based on a specific field value, use *val* to get partial values
+       a) sort      - field on which to sort (requires valid field name in the parent entity)
+       b) direction - direction on which to sort. default is ASC accepted (ASC and DESC)
+       c) limit     - limit the size of the result, requires positive integer
+       d) offset    - offset of the result (requires a valid limit and a positive integer)
+       e) {fieldname} - filters based on a specific field value, use *val* to get partial values
 
  6) Database structure:
  
