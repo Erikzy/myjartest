@@ -33,6 +33,7 @@ myjartest
    d) POST {url}/customer/ - creates a customer based on the post json
    
 4) JSON example:
+  
   {
     "phone":"+447700900713",
     "email":"erqwhhh3d@gmail.com",
