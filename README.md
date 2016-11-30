@@ -24,6 +24,7 @@ myjartest
   
    c) edit StaticConf.class.php for environment-specific values such as DB-configuration and site URL.
    d) run composer to verify external dependencies
+   e) import the example database dump "myjar_2016-11-30.sql"
    
 3) Usage:
    a) GET {url}/customer/ - returns list of customers
@@ -52,7 +53,19 @@ myjartest
         offset    - offset of the result (requires a valid limit and a positive integer)
         {fieldname} - filters based on a specific field value, use *val* to get partial values
 
- 
-  
-   
+ 6) Database structure:
+      customer:
+         -id [PK][AI]
+         -email [UNIQUE] VARCHAR
+      
+      customerdetail:
+         -id [PK][AI]
+         -customer_id [FK][references: customer.id]
+         -identifiername VARCHAR
+         -identifiervalue VARCHAR
+       
+       phonenunber:
+         -customer_id[PK][references: customer.id]
+         -phonenumber TEXT
+         
    
