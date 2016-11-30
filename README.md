@@ -13,10 +13,9 @@ myjartest
 
     a) Pull the repository
     
-    b) Set up Apache to serve the directory you pulled the repository into:
-   
-   ------EXAMPLE APACHE CONF----
-    <VirtualHost *:80>
+    b) Set up Apache to serve the directory you pulled the repository into.
+  
+  <VirtualHost *:80>
     DocumentRoot "/var/www/myjar2/"
     DirectoryIndex index.php
     ServerName myjar.blackbutterfly.ee
@@ -26,7 +25,7 @@ myjartest
       Allow from All
     </Directory>
    </VirtualHost>
-  --------------------------------
+
   
    c) edit StaticConf.class.php for environment-specific values such as DB-configuration and site URL.
    
