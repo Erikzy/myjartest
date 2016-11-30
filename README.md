@@ -2,10 +2,14 @@
 myjartest
 
 1) Required:
+
+
    a) Minimum of PHP 5.6
    b) Apache Server with mod_rewrite enabled
 
 2) Installation :
+
+
     a) Pull the repository
     b) Set up Apache to serve the directory you pulled the repository into:
    
@@ -27,6 +31,8 @@ myjartest
    e) import the example database dump "myjar_2016-11-30.sql"
    
 3) Usage:
+
+
    a) GET {url}/customer/ - returns list of customers
    b) GET {url}/customer?key1=val1&key2=val2 - returns list of customers filtered based on given parameters
    c) GET {url}/customer/{id} - returns customer with id specified
@@ -48,6 +54,7 @@ myjartest
   }
   
  5) available filters:
+ 
        a) sort      - field on which to sort (requires valid field name in the parent entity)
        b) direction - direction on which to sort. default is ASC accepted (ASC and DESC)
        c) limit     - limit the size of the result, requires positive integer
