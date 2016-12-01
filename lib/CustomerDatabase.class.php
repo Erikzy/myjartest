@@ -58,9 +58,9 @@ class CustomerDatabase {
                         if (preg_match("/^[*]{1}[a-z A-z0-9]+[*]{1}$/", $filterValue) > 0) {
                             $termSql .= " c$filterKey.identifiervalue LIKE :c" . $filterKey . "val AND";
                             $return['params'][":c" . $filterKey . 'val'] = str_replace("*", "%", $filterValue);
-                            ;
+
                         } else {
-                            $termSql .= " c$filterKey.identifiervalue = :c$filterValue AND";
+                            $termSql .= " c$filterKey.identifiervalue = :c".$filterKey."val AND";
                             $return['params'][":c" . $filterKey . 'val'] = $filterValue;
                         }
                         $return['params'][":c" . $filterKey] = $filterKey;
